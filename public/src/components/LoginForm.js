@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 
 class LoginFrom extends Component {
 
+  handleSubmit(e) {
+    e.preventDefault();
+  }
+
   render() {
 
     return (
         <div className="col-md-6 offset-md-3 m-t-1">
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <div className="form-group row">
               <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email</label>
               <div className="col-sm-10">

@@ -1,30 +1,11 @@
 import {combineReducers} from 'redux';
-import {RECEIVE_TODOS, REQUEST_TODOS} from '../actions';
 
-const isLoading = (state=true, action)=> {
-  switch(action.type) {
-    case REQUEST_TODOS:
-      return true;
-    case RECEIVE_TODOS:
-      return false;
-    default:
-      return state;
-  }
+const loggedIn = (state = true, action)=> {
   return state;
 };
 
-const todos = (state=[], action)=> {
-  switch(action.type) {
-    case RECEIVE_TODOS:
-      return action.data;
-    default:
-      return state;
-  }
-};
-
 const rootReducer = combineReducers({
-  todos,
-  isLoading
+  loggedIn
 });
 
 export default rootReducer;
