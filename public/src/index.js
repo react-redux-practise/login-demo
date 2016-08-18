@@ -7,6 +7,7 @@ import "react-progress-2/main.css"
 import App from './components/App';
 import rootReducer from './reducers';
 import LoginForm from './components/LoginForm';
+import DataList from './components/DataList';
 
 const store = createStore(rootReducer);
 
@@ -16,6 +17,7 @@ render(
         <Route path="/" component={App}>
           <IndexRoute component={LoginForm}/>
           <Route path="login" component={LoginForm}/>
+          <Route path="data" component={DataList}/>
         </Route>
       </Router>
     </Provider>,
