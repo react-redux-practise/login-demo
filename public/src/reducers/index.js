@@ -4,7 +4,7 @@ import {RECEIVE_TODOS, REQUEST_TODOS} from '../actions';
 const isLoading = (state=true, action)=> {
   switch(action.type) {
     case REQUEST_TODOS:
-      return true
+      return true;
     case RECEIVE_TODOS:
       return false;
     default:
