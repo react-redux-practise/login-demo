@@ -17,7 +17,7 @@ class NavMenu extends Component {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" href="#" to="data">Data</Link>
+              <Link className="nav-link" href="#" to="/data">Data</Link>
             </li>
           </ul>
         </nav>

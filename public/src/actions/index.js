@@ -1,27 +1,12 @@
-import request from 'superagent';
-
-export const REQUEST_TODOS = 'REQUEST_TODOS';
-export const RECEIVE_TODOS = 'RECEIVE_TODOS';
-
-export const requestTodos = ()=> {
-  return {
-    type: REQUEST_TODOS
-  }
-};
-
-export const receiveTodos = (todos)=> {
-  return {
-    type: RECEIVE_TODOS,
-    data: todos
-  }
-};
-
-export const fetchTodos = ()=> {
+export const login = ()=> {
   return (dispatch)=> {
-    dispatch(requestTodos());
-    request.get('/todos')
-        .end((err, res)=> {
-          dispatch(receiveTodos(res.body));
-        });
+    dispatch({
+      type: "LOGGING"
+    });
+    setTimeout(()=> {
+      dispatch({
+        type: "LOGGED_IN"
+      })
+    }, 1000);
   }
 };

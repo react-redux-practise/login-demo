@@ -2,22 +2,29 @@ import React from 'react';
 import {render} from 'react-dom';
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
+import trunkMiddleware from 'redux-thunk';
+import createLogger from 'redux-logger';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router'
 import "react-progress-2/main.css"
 import App from './components/App';
 import rootReducer from './reducers';
-import LoginForm from './components/LoginForm';
+import LoginForm from './containers/LoginForm';
 import DataList from './components/DataList';
+import Card from './components/Card';
 
-const store = createStore(rootReducer);
+const store = createStore(
+    rootReducer,
+    applyMiddleware(trunkMiddleware, createLogger())
+);
 
 render(
     <Provider store={store}>
       <Router history={browserHistory}>
         <Route path="/" component={App}>
           <IndexRoute component={LoginForm}/>
-          <Route path="login" component={LoginForm}/>
-          <Route path="data" component={DataList}/>
+          <Route path="/login" component={LoginForm}/>
+          <Route path="/data" component={DataList}/>
+          <Route path="/card/:id" component={Card}/>
         </Route>
       </Router>
     </Provider>,
