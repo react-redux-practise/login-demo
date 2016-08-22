@@ -17,6 +17,16 @@ const store = createStore(
     applyMiddleware(trunkMiddleware, createLogger())
 );
 
+const requireAuth = (nextState, replace)=> {
+  if(!store.getState()) {
+    replace({
+      path: '/login'
+    });
+  };
+
+
+};
+
 render(
     <Provider store={store}>
       <Router history={browserHistory}>
@@ -24,7 +34,7 @@ render(
           <IndexRoute component={LoginForm}/>
           <Route path="/login" component={LoginForm}/>
           <Route path="/data" component={DataList}/>
-          <Route path="/card/:id" component={Card}/>
+          <Route path="/card/:id" component={Card} onEnter={requireAuth}/>
         </Route>
       </Router>
     </Provider>,
