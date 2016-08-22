@@ -1,4 +1,4 @@
-# 使用 react + express 做的文件上传的例子
+# 使用 react + react-router + express 做的登录跳转和param传递的例子
 
 ### 注意
 > 要在.gitignore中加上文件上传目标路径，以防测试文件被上传
